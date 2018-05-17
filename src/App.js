@@ -1,6 +1,7 @@
 import Formsy from 'formsy-react';
 import React from 'react';
 import MyInput from './MyInput';
+import MyInput2 from './MyInput2';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export default class App extends React.Component {
           validationError="This is not a valid email"
           required
         />
-        <MyInput
+         <MyInput2
           name="name"
         />
         <button type="submit" disabled={!this.state.canSubmit}>Submit</button>
@@ -42,3 +43,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+

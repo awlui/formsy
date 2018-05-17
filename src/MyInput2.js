@@ -1,22 +1,11 @@
 // MyInput.js
 import { withFormsy } from 'formsy-react';
 import React from 'react';
-
+import HOC from './HOC';
 class MyInput extends React.Component {
   constructor(props) {
     super(props);
     this.changeValue = this.changeValue.bind(this);
-    this.shouldComponentUpdate = function() {
-      let prev;
-
-      return function(prevProps, prevState) {
-        if (prev !== this.props.getValue()) {
-          prev = prevProps.getValue();
-          return true;
-        }
-        return false;
-      }
-    }();
   }
 
   changeValue(event) {
@@ -26,10 +15,11 @@ class MyInput extends React.Component {
     // for Formsy to work.
     this.props.setValue(event.currentTarget.value);
   }
+
   render() {
     // An error message is returned only if the component is invalid
     const errorMessage = this.props.getErrorMessage();
-    console.log('render')
+    console.log("RENDER WITH HOC");
     return (
       <div>
         <input
@@ -43,4 +33,4 @@ class MyInput extends React.Component {
   }
 }
 
-export default withFormsy(MyInput);
+export default withFormsy(HOC(MyInput));
